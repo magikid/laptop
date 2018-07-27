@@ -16,6 +16,7 @@ We support:
 * macOS Yosemite (10.10)
 * macOS El Capitan (10.11)
 * macOS Sierra (10.12)
+* macOS High Sierra (10.13)
 
 Older versions may work but aren't regularly tested.
 Bug reports for older versions are welcome.
@@ -26,7 +27,7 @@ Install
 Download the script:
 
 ```sh
-curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
+curl --remote-name https://raw.githubusercontent.com/magikid/laptop/master/mac
 ```
 
 Review the script (avoid running scripts you haven't read!):
@@ -77,7 +78,6 @@ Unix tools:
 * [RCM] for managing company and personal dotfiles
 * [The Silver Searcher] for finding things in files
 * [Tmux] for saving project state and switching between projects
-* [Watchman] for watching for filesystem events
 * [Zsh] as your shell
 
 [Exuberant Ctags]: http://ctags.sourceforge.net/
@@ -86,21 +86,7 @@ Unix tools:
 [RCM]: https://github.com/thoughtbot/rcm
 [The Silver Searcher]: https://github.com/ggreer/the_silver_searcher
 [Tmux]: http://tmux.github.io/
-[Watchman]: https://facebook.github.io/watchman/
 [Zsh]: http://www.zsh.org/
-
-Heroku tools:
-
-* [Heroku CLI] and [Parity] for interacting with the Heroku API
-
-[Heroku CLI]: https://devcenter.heroku.com/articles/heroku-cli
-[Parity]: https://github.com/thoughtbot/parity
-
-GitHub tools:
-
-* [Hub] for interacting with the GitHub API
-
-[Hub]: http://hub.github.com/
 
 Image tools:
 
@@ -128,14 +114,6 @@ Programming languages, package managers, and configuration:
 [ASDF]: https://github.com/asdf-vm/asdf
 [Ruby]: https://www.ruby-lang.org/en/
 [Yarn]: https://yarnpkg.com/en/
-
-Databases:
-
-* [Postgres] for storing relational data
-* [Redis] for storing key-value data
-
-[Postgres]: http://www.postgresql.org/
-[Redis]: http://redis.io/
 
 It should take less than 15 minutes to install (depends on your machine).
 
