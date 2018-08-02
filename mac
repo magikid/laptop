@@ -151,7 +151,6 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
-cask "meld"
 EOF
 
 if brew list | grep --silent "qt@5.5"; then
