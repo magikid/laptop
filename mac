@@ -139,6 +139,8 @@ brew "fzf"
 brew "chruby"
 brew "go"
 brew "rust"
+brew "jrnl"
+brew "mkcert"
 
 # Image manipulation
 brew "imagemagick"
@@ -206,3 +208,7 @@ if [ -f "$HOME/.laptop.local" ]; then
   # shellcheck disable=SC1090
   . "$HOME/.laptop.local"
 fi
+
+fancy_echo "Installing trusted cert for localhost..."
+mkcert -install
+mkcert cnet.com localhost-cms.cnet.com '*.cnet.com' localhost 127.0.0.1 ::1
