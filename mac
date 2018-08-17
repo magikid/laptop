@@ -139,6 +139,8 @@ brew "fzf"
 brew "chruby"
 brew "jrnl"
 brew "mkcert"
+cask "gpg-suite"
+cask "intellij-idea"
 
 # Image manipulation
 brew "imagemagick"
@@ -154,7 +156,7 @@ brew "groovysdk"
 brew "ant", args: ["with-ivy"]
 brew "go"
 brew "rust"
-cask "gpg-suite"
+cask "java"
 EOF
 
 if brew list | grep --silent "qt@5.5"; then
