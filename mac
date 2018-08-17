@@ -137,8 +137,6 @@ brew "ripgrep"
 brew "zsh"
 brew "fzf"
 brew "chruby"
-brew "go"
-brew "rust"
 brew "jrnl"
 brew "mkcert"
 
@@ -152,6 +150,8 @@ brew "qt@5.5" if MacOS::Xcode.installed?
 brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
+brew "go"
+brew "rust"
 cask "gpg-suite"
 EOF
 
