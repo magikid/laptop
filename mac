@@ -140,6 +140,7 @@ brew "chruby"
 brew "jrnl"
 brew "mkcert"
 brew "watch"
+brew "jq"
 cask "gpg-suite"
 cask "intellij-idea"
 
