@@ -139,6 +139,7 @@ brew "fzf"
 brew "chruby"
 brew "jrnl"
 brew "mkcert"
+brew "watch"
 cask "gpg-suite"
 cask "intellij-idea"
 
@@ -152,11 +153,10 @@ brew "qt@5.5" if MacOS::Xcode.installed?
 brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
+cask "java"
 brew "groovysdk"
 brew "ant", args: ["with-ivy"]
 brew "go"
-brew "rust"
-cask "java"
 EOF
 
 if brew list | grep --silent "qt@5.5"; then
@@ -164,6 +164,15 @@ if brew list | grep --silent "qt@5.5"; then
   brew unlink qt@5.5
   brew link --force qt@5.5
 fi
+
+if command -v pip3 &>/dev/null; then
+  fancy_echo "Installing neovim python package"
+  pip3 install --upgrade neovim
+else
+  fancy_echo "Neovim need python3 support but pip3 wasn't found."
+  fancy_echo "Once it's installed, run pip3 install --upgrade neovim."
+fi
+
 
 fancy_echo "Configuring asdf version manager..."
 if [ ! -d "$HOME/.asdf" ]; then
@@ -184,6 +193,7 @@ install_asdf_plugin() {
 source "$HOME/.asdf/asdf.sh"
 install_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 install_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+install_asdf_plugin "maven" "https://github.com/skotchpine/asdf-maven.git"
 
 install_asdf_language() {
   local language="$1"
