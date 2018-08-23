@@ -122,6 +122,7 @@ tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 tap "caskroom/cask"
+tap "caskroom/versions"
 
 # Unix
 brew "universal-ctags", args: ["HEAD"]
@@ -155,6 +156,7 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "java"
+cask "java8"
 brew "groovysdk"
 brew "ant", args: ["with-ivy"]
 brew "go"
