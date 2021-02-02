@@ -1,5 +1,15 @@
 # Laptop
 
+* [Linux](#linux)
+  + [Install](#install)
+* [macOS](#macos)
+  + [Requirements](#requirements)
+  + [Install](#install-1)
+  + [What it sets up](#what-it-sets-up)
+* [Debugging](#debugging)
+* [Customize in `~/.laptop.local`](#customize-in----laptoplocal-)
+* [Contributing](#contributing)
+* [License](#license)
 
 ## Linux
 
