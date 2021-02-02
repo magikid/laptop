@@ -46,16 +46,16 @@ fi
 # shellcheck disable=SC2016
 append_to_zshrc 'export PATH="$HOME/bin:$PATH"'
 
-HOMEBREW_PREFIX="/usr/local"
+HOMEBREW_PREFIX="$HOME/.linuxbrew"
 
 if [ -d "$HOMEBREW_PREFIX" ]; then
   if ! [ -r "$HOMEBREW_PREFIX" ]; then
-    sudo chown -R "$LOGNAME:admin" /usr/local
+    sudo chown -R "$LOGNAME:adm" /home/chrisj/.linuxbrew
   fi
 else
   sudo mkdir "$HOMEBREW_PREFIX"
-  sudo chflags norestricted "$HOMEBREW_PREFIX"
-  sudo chown -R "$LOGNAME:admin" "$HOMEBREW_PREFIX"
+  #
+  sudo chown -R "$LOGNAME:adm" "$HOMEBREW_PREFIX"
 fi
 
 update_shell() {
@@ -72,7 +72,7 @@ update_shell() {
 
 case "$SHELL" in
   */zsh)
-    if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
+    if [ "$(command -v zsh)" != '/usr/bin/zsh' ] ; then
       update_shell
     fi
     ;;
@@ -91,15 +91,15 @@ gem_install_or_update() {
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
-    curl -fsS \
-      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+    sudo apt install -y build-essential curl file git
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     append_to_zshrc '# recommended by brew doctor'
 
     # shellcheck disable=SC2016
-    append_to_zshrc 'export PATH="/usr/local/bin:$PATH"' 1
+    append_to_zshrc 'export PATH="$HOME/.linuxbrew/bin:$PATH"' 1
 
-    export PATH="/usr/local/bin:$PATH"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
 fi
 
 if [[ ! -d ~/.oh-my-zsh ]]; then
@@ -142,13 +142,9 @@ brew "jrnl"
 brew "mkcert"
 brew "watch"
 brew "jq"
-cask "gpg-suite"
 
 # Image manipulation
 brew "imagemagick"
-
-# Testing
-brew "qt@5.5" if MacOS::Xcode.installed?
 
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
